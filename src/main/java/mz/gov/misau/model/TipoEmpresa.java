@@ -1,7 +1,6 @@
 package mz.gov.misau.model;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,22 +11,18 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "provincia")
-@SequenceGenerator(name = "seq_Provincia", sequenceName = "seq_provincia", allocationSize = 1,initialValue = 1)
-public class Provincia implements Serializable {
+@Table(name = "TipoEmpresa")
+@SequenceGenerator(name = "seq_TipoEmpresa", sequenceName = "seq_TipoEmpresa", allocationSize = 1, initialValue = 1)
+public class TipoEmpresa implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator ="seq_Provincia" )
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_TipoEmpresa")
 	private Long id;
 
 	@Column(nullable = false)
 	private String nome;
-
-	private String abrevProv;
-
-	private Date dataRegisto;
 
 	public Long getId() {
 		return id;
@@ -43,22 +38,6 @@ public class Provincia implements Serializable {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public String getAbrevProv() {
-		return abrevProv;
-	}
-
-	public void setAbrevProv(String abrevProv) {
-		this.abrevProv = abrevProv;
-	}
-
-	public Date getDataRegisto() {
-		return dataRegisto;
-	}
-
-	public void setDataRegisto(Date dataRegisto) {
-		this.dataRegisto = dataRegisto;
 	}
 
 	@Override
@@ -77,7 +56,7 @@ public class Provincia implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Provincia other = (Provincia) obj;
+		TipoEmpresa other = (TipoEmpresa) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -86,4 +65,6 @@ public class Provincia implements Serializable {
 		return true;
 	}
 
+	
+	
 }
